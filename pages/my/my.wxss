@@ -1,0 +1,14 @@
+/* pages/my/my.wxss */
+page{
+  height: 100%;
+  width: 100%;
+}
+.img{
+  height: 40%;
+  width: 100%;
+  background-size:cover;
+  position: fixed;
+}
+.wwww{
+  position: relative;
+}

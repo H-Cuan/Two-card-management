@@ -1,0 +1,39 @@
+/**index.wxss**/
+page{
+  height:100%
+}
+.container{
+  background-size: 100% 100%;
+  height: 80%;
+  width: 100%; 
+  z-index: 3;
+}
+image{
+  height: 60%;
+  width: 100%;
+  background-size:cover;
+  position: fixed
+}
+.content{
+  background-color: #ffffff;
+
+  border-radius: 20px;
+  width: 90%;
+  position: absolute;
+  margin-top: 20%;
+}
+.input{
+ font-size: 25px;
+ height: 30px;
+}
+.home-header-line{
+   background: #e0e3da;
+  width: 85%;
+  height: 3rpx;
+}
+.Certification{
+  background-color: #2188fe;
+  color: #ffffff;
+  border-radius: 13px;
+  font-size: 1.5em;
+}

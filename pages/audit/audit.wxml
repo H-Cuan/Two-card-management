@@ -1,0 +1,20 @@
+<!--pages/audit/audit.wxml-->
+<view  class="container">
+<view bindtap="goBack" wx:if="{{isHelp}}" style="z-index: 55555555; margin-top: -14%;margin-left: -75%;border: 3px #2188fe solid; background-color: #fff;height: 30px; border-radius: 20px;width: 30px;display: flex;justify-content: space-around;align-items: center;">
+  <image src="../../img/shouye.png" style="height: 20px;width: 20px;" mode=""/>
+</view>
+  <view style="margin-top: -200px; display: flex;justify-content: space-evenly;align-items: baseline; height: 300px;width: 100%;">
+  </view>
+ <view  wx:if="{{inReview}}" class="tubiao">
+<image  src="../../img/shenhezhong.png" style="height: 104pt;width: 104pt;" mode=""/>
+ <text class="tubiao" style="margin-top: 200px;position: absolute;">资料上传成功，等待审核 </text> 
+ </view>
+<view wx:if="{{approv}}">
+  <image src="../../img/youxiaoqinei.png" style="height: 104pt;width: 104pt;" mode=""/>
+ <text class="tubiao" style="margin-top: 50px;">信息上传成功</text> 
+</view>
+<view wx:if="{{auditFailure}}">
+  <image src="../../img/shixiao.png" style="height: 104pt;width: 104pt;" mode=""/>
+ <text class="tubiao" style="margin-top: 50px;">审核失败</text> 
+</view>
+</view>

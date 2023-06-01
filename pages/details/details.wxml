@@ -1,0 +1,41 @@
+<!--pages/details/details.wxml-->
+<view wx:if="{{show}}" style="width: 100%;height: 100%;background-color:rgba(0,0,0,0.5);z-index: 1;position: absolute;"></view>
+<view class="data">
+
+  <view wx:if="{{show}}" style="display: flex;flex-wrap: wrap;justify-content: center;align-items: center; position: fixed;z-index: 222;border-radius: 15px; width: 80%;height: 30%;background-color: #fff;margin: 50% 10% 50% 10%;">
+<view style="font-size: 1.1em;display: flex;justify-content: center;">绑定卡号</view>
+<view style="font-size: 18px; width: 100%;display: flex;justify-content:space-around;align-items: center;">
+卡号:<input value="{{value}}" bindinput="inputNumber" style="margin-left:5px;" placeholder="请输入{{category}}卡号" type="text"/>
+<ocr-navigator wx:if="{{saomiao}}" bind:onSuccess="blankSuccess"  certificateType="bankCard">
+  <button  type="primary" style="background-color: #fff;display: flex;justify-content: center;align-items: center;"><image src="../../img/saoyisao.png" style="width: 20px;height: 20px;" mode=""/></button>
+</ocr-navigator>
+</view>
+<view style="display: flex;justify-content: space-around; width: 100%;">
+  <button bindtap="cancel" style="width: 40%; color: #2188FE;background-color: #fff;border: 1px #2188FE solid;">取消</button>
+  <button bindtap="confirm" style="width: 40%; color: #fff;background-color: #2188FE;">确认</button>
+</view>
+</view>
+
+
+  <view style="margin-top: 20px;">认证照片：
+  <view>
+    <image style="width: 100px;height: 150px;border-radius: 15px;" src="{{data.photo}}" mode=""/>
+  </view>
+  </view>
+  <view>姓名：{{data.name}}<text></text></view>
+  <view>性别：{{data.sex}}<text></text></view>
+  <view>民族：{{data.nation}}<text></text></view>
+  <view>身份证号码：{{data.identity}}<text></text></view>
+  <view>联系方式：{{data.apply_phone}}<text></text></view>
+  <view >地址：{{data.address}}<text></text></view>
+  <view>证件有效期：{{data.indate}}<text></text></view>
+  <view style="margin-top: 20%;display: flex;justify-content: center;align-items: center; color: red;">
+    <view wx:if="{{abnormal}}" style="justify-content: center;align-items: center;display: flex;">
+      <image src="../../img/jinggao.png" style="width: 15pt;height: 15pt;margin-right: 5px;" mode=""/><text > 该人员信息异常</text>
+    </view>
+  </view>
+  <view wx:if="" style="margin-top: 5%;display: flex;justify-content: space-between;">
+    <button bindtap="refuse" style="width: 45%; background:#fff;border:1px red solid;color:red;border-radius: 10px;">拒绝申请</button>
+    <button bindtap="pass" style="width: 45%;background:#20e167;border-radius: 10px;color: #fff;">通过申请</button>
+  </view>
+</view>

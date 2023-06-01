@@ -1,0 +1,40 @@
+/* pages/nationalEmblem/nationalEmblem.wxss */
+.container{
+  height: 100%;
+  width: 100%;
+ background: linear-gradient(#68aefe,#ffffff);
+ position: relative;
+}
+.content{
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  margin-top:-220px ;
+  display: flex;
+  justify-content: center;
+  flex-wrap:wrap;
+  
+}
+.IDcard{
+  box-shadow: 0rpx 10rpx 50rpx 10rpx rgba(85, 85, 85, 0.10);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  width: 80%;
+  height: 85%;
+  background-color: #f1f8ff;
+}
+.footer{
+  margin-top: 140px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.input{
+  position:relative;
+  width: 100%;
+  margin-top: -220px;
+  height:450px;
+}

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "ocr-navigator": "plugin://ocr-plugin/ocr-navigator"
+  },
+  "navigationBarTitleText": "申请人信息",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTextStyle": "black"
+}

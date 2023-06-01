@@ -1,0 +1,63 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/idEntity/idEntity",
+    "pages/nationalEmblem/nationalEmblem",
+    "pages/veriface/veriface",
+    "pages/audit/audit",
+    "pages/login/login",
+    "pages/applyList/applyList",
+    "pages/my/my",
+    "pages/details/details",
+    "pages/faceImg/faceImg",
+    "pages/List/List",
+    "pages/changePassword/changePassword",
+    "pages/helpList/helpList"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "用于人脸识别"
+    }
+  },
+  "plugins": {
+    "ocr-plugin": {
+      "version": "3.1.5",
+      "provider": "wx4418e3e031e551be"
+    }
+  },
+  "tabBar": {
+    "color": "#ccc",
+    "selectedColor": "#2188fe",
+    "borderStyle": "white",
+    "list": [
+      {
+        "selectedIconPath": "img/shouye2.png",
+        "iconPath": "img/shouye1.png",
+        "pagePath": "pages/applyList/applyList",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "img/mine2.png",
+        "iconPath": "img/mine.png",
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index"
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#68aefe",
+    "navigationBarTitleText": "廊坊市两卡风控登记",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "requiredPrivateInfos": [
+    "getLocation",
+    "chooseLocation",
+    "chooseAddress"
+  ]
+}

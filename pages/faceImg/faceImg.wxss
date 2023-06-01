@@ -1,0 +1,4 @@
+/* pages/faceImg/faceImg.wxss */
+page{
+  height: 100%;
+}

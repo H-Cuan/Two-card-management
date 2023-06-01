@@ -1,0 +1,66 @@
+/* pages/applyList/applyList.wxss */
+page{
+  width: 100%;
+  height: 100%;
+  background-color: #f5f7fb;
+}
+.body{
+  width: 100%;
+  height: 100%;
+  background-color: #f5f7fb;
+}
+
+.container{
+position: relative;
+margin-top: -20%;
+width: 100%;
+height: 120%;
+}
+input{
+  padding-left: 20px;
+  width: 85%;
+  display: flex;
+  justify-content: left;
+  height: 40px;
+  border-radius: 8px;
+  background-color: #fff;
+  position: absolute;
+  }
+  icon{
+    position: relative;
+    margin-top: 8px;
+  margin-left: 70%;
+  z-index: 222;
+  }
+.list{
+  width: 100%;
+}
+.listC{
+  margin: 0 5% 0 5%;
+  width: 90%;
+  background-color: #fff;
+  border-radius: 10px;
+}
+.listContent{
+margin: 10px;
+justify-content: space-evenly;
+align-items: center;
+padding: 10px;
+display: flex;
+}
+.listContent>image{
+  margin-left: -15px;
+  border-radius: 8px;
+  position: relative;
+}
+.listRight{
+  width: 60%;
+  margin-left: 10px;
+}
+.listRight>view{
+  display: flex;
+  margin: 0px 0 5px 0;
+  flex-wrap: nowrap;
+  justify-content: left;
+  align-items: center;
+}

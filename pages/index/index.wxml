@@ -1,0 +1,186 @@
+<!--index.wxml-->
+<image src="../../img/background.png" mode=""/>
+ <view wx:if="{{closeModalS}}" style="background: #ccc;opacity:0.50; position: fixed;width: 100%;height: 100%;z-index:4 ;">
+</view>
+<view wx:if="{{closeModalS}}" style="position: fixed;z-index: 5;background: #fff;width: 80%;height: 200px;margin-top: 70%;margin-left: 9%; border-radius: 15px;">
+  <view style="justify-content: center;display: flex;height: 40px; align-items: center;">
+    <text style="color: cornflowerblue;">系 统 信 息</text>
+  </view>
+  <view style="margin-top: 20px; justify-content: center;display: flex;height: 50px; align-items: center;">
+    <view >
+    <view style="width: 200px;word-wrap: break-word;text-align: center;">
+{{bankName}}
+    </view>
+    </view>
+  </view>
+  <view style="display: flex;margin-top: 20px;justify-content:space-around;position: relative;">
+    <button style="display: flex;border-radius: 8px;align-items: center;justify-content: center;margin-right: -10px; width: 118px;height: 40px;color: #2188fe;border: #2188fe solid 0.1px;" bindtap="rescan" >重新扫码</button>
+    <button  style="border-radius: 8px;display: flex;align-items: center;justify-content: center;background-color: #2188fe; width: 118px;height: 40px;color: #fff;border: #2188fe solid 0.1px;"   bindtap="closeM">确定</button>
+  </view>
+</view>
+<view wx:if="{{closeModal}}" style="background: #ccc;opacity:0.50; position: fixed;width: 100%;height: 100%;z-index: 2;">
+</view>
+
+<view wx:if="{{exit}}" style="position: fixed;z-index: 5;background: #fff;width: 80%;height: 200px;margin-top: 70%;margin-left: 9%; border-radius: 15px;">
+  <view style="justify-content: center;display: flex;height: 40px; align-items: center;">
+    <text style="color: cornflowerblue;">系 统 信 息</text>
+  </view>
+  <view style="margin-top: 20px; justify-content: center;display: flex;height: 50px; align-items: center;">
+    <view >
+    <view style="width: 200px;word-wrap: break-word;text-align: center;">
+请扫描二维码进入小程序
+    </view>
+    </view>
+  </view>
+  <view style="display: flex;margin-top: 20px;justify-content:space-around;position: relative;">
+    <button style="width: 80%;background-color: #2188fe;color: #fff;" bindtap="exit" >扫一扫</button>
+  </view>
+</view>
+
+
+<view  class="container" >
+
+  <view wx:if="{{show}}" class="content" style="position: {{position}};">
+  <view style="display: flex;justify-content: center;margin-top:10% ;">
+    <input class="input" disabled="{{unInput}}" bindinput="inputphone" value="{{phoneNumber}}" placeholder="请输入常用手机号"/>
+  </view>
+  <view style="display: flex;justify-content: center;margin-top:10px;">
+    <view class="home-header-line"></view>
+  </view >
+  <view style="display: flex;justify-content: center;width: 100%; margin-top:10%;">
+    <button  style="width: 85%;" class="Certification" disabled="{{closeShow}}" bindtap="Certification">实名认证</button>
+  </view>
+  <view style="display: flex;justify-content: center; flex-wrap: wrap; width: 100%; margin-top:10%;">
+    <view style="width: 85%;">
+      安全提示：市民需提防花样摆出的银行卡诈骗。
+    </view>
+    <view style=" margin-top:20px;width: 85%;">
+      提示一：卡在手中≠安全用卡。“手机卡、身份证
+号、银行卡号和密码等4项个人信息，是银行卡服
+务中身份验证的重要信息。只要涉及这4项重要信
+息，都要提高警惕，不要轻易泄露给他人，如号
+码被用于电信诈骗等违法犯罪行为，实名登记人
+可能会负刑事责任。”
+    </view>
+    <view style="margin-top:20px;width: 86%;">
+提示二：投机套现≠无息贷款。社会上出现声
+称“代办无抵押、无担保贷款”的“黑中介”，通常
+通过手机短信、互联网、报纸媒体等投放广告诱
+骗消费者，并赚取消费者的手续费。这类“黑中
+介”实际是借用消费者的身份同时向多家银行申请
+多张信用卡，然后刷卡套现，循环透支，将使消
+费者面临多重风险。
+    </view>
+  </view>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  </view>
+
+
+  <view wx:if="{{closeDialog}}" style="font-size: 15px; width: 90%;display: flex;justify-content: center; border-radius:20px ;background-color: #ffffff;z-index: 3; ">
+  <view style="margin-top: 2px; display: flex;justify-content: center;align-items: center; width: 45%;background-color: #2188fe;height: 5%;font-size: 20px;color: #e6f3ff;transform: perspective(30px) rotateX(-10deg); border-bottom-right-radius:15px ;border-bottom-left-radius:15px; position: absolute; ">
+ <view style="margin-bottom: 4px; transform: perspective(30px) rotateX(10deg);font-weight: bold;color: #fff;">
+  安全提示
+ </view> 
+  </view>
+<view wx:if="{{yinhangka}}" style=" margin: 0px 20px; margin-top:20%; height: 100%;border: blacks; width: 100%;">
+  <view style="display:flex;flex-wrap: wrap;justify-content: center;width: 80%;font-weight: bold;margin-left: 10%;">
+     <view style="display: flex;justify-content: center;">出租、出借、买卖银行卡</view>  
+    <view>
+      涉嫌违法犯罪告知书
+    </view>
+
+  </view>
+  <view style=" margin-top:15px;">
+    一、任何单位或个人办理的银行账户（含银行卡），不得出租、出借、出卖给他人用于违法犯罪活动。违法开办、出租、出借、贩卖银行卡，公安机关根据犯罪情节和情形，以诈骗罪、帮助信息网络犯罪活动罪、妨害信用卡管理罪等罪名依法打击处理。轻则拘役或管制，并处或单处罚金，重则判处3到10年有期徒刑。
+    </view>
+    <view style=" margin-top:5px;">
+      二、经告知，仍坚持违法开办、出租、出借、贩卖银行卡，虽无法确定他人利用所出租、出借、出售的银行卡实施何种具体行为，结果被用于电信网络诈骗或其他违法犯罪，公安机关将依照《中华人民共和国刑法》的有关规定，依法严厉打击
+    </view>
+    <view style="margin-top:5px;">
+      三、对设区的市级及以上公安机关认定的非法出租、出售、购买银行卡或者支付账户的单位、个人，在被追究刑事责任的同时还要纳入失信名单，实施五年内暂停其银行账户非柜面业务、支付账户所有业务，并不得为其新开立账户的惩戒措施。惩戒期满后申请开户的，银行和支付机构将加大审核力度。如若有违法犯罪行为发生，公安部门将依法调取该告知书作为案件证据使用。
+    </view>
+    <view style="margin-top: 25px;display: flex;align-items: center;"> 
+    <checkbox-group bindchange="checkboxChange">
+      <checkbox  value="cb"  /> 
+    </checkbox-group>
+    <text style="font-size:18px;color: #2188fe;">我已知晓</text> 
+    </view>
+    <button  style="width: 100%;margin-top: 10%; position: relative;margin-bottom: 50px;" 	 disabled="{{disabled}}" class="Certification" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" bindtap="into">进入小程序</button>
+</view>
+<view wx:if="{{shoujika}}" style=" margin: 0px 20px; margin-top:20%; height: 100%;border: blacks; width: 100%;">
+  <view style="display:flex;flex-wrap: wrap;justify-content: center;width: 80%;font-weight: bold;margin-left: 10%;">
+     <view style="display: flex;justify-content: center;">出租、出借、买卖电话卡</view>  
+    <view>
+      涉嫌违法犯罪告知书
+    </view>
+
+  </view>
+  <view style=" margin-top:15px;">
+    一、用户存在以下通信异常疑似诈骗的，暂停通信服务：
+    <view>
+      (1)开卡后漫游至电信网络诈编高危地且通信行为异常
+的；
+    </view>
+    <view>
+      (2)经他人投诉有诈编、强扰行为，一经核实的；
+    </view>
+<view>
+  (3)频繁换机插卡或频繁补换卡；
+</view>
+<view>
+  (4)公安机关提供的涉率或高风险人员开办的号卡。
+</view>
+    </view>
+    <view style=" margin-top:5px;">
+      二、对有如下行为的人员，纳入失信名单，限制新办业
+务：
+<view>
+  (1)将本人身份办理的号卡违规赠送、出借、售卖给他
+人的；
+</view>
+<view>
+  (2)受他人组织、教唆，无正当理由办卡；
+</view>
+<view>
+  (3)使用号卡用于各类强扰、虚假广告、诈骗的；
+</view>
+<view>
+  (4)公安机关提供的涉诈或高风险人员。
+</view>
+    </view>
+    <view style="margin-top:5px;">
+      三、对有如下行为的机构、组织或人员，一律移交公安机关
+警示训诚，一经发现有违法犯罪行为依法追究法律责任：
+<view>
+  (1)代理网点存在违规、批量开卡、违规屯卡的；
+</view>
+<view>
+  (2)组织、教唆、收受、贩卖他人开办新卡的；
+</view>
+<view>
+  (3)将本人身份办理的号卡违规赠予、出借、售卖给他
+人的；
+</view>
+<view>
+  (4)开办的号卡涉嫌电信网络诈骗等犯罪行为的。
+如若有违法犯罪行为发生，公安部门将依法调取该告知
+书作为案件证据使用。
+</view>
+    </view>
+    <view style="margin-top: 25px;display: flex;align-items: center;"> 
+    <checkbox-group bindchange="checkboxChange">
+      <checkbox  value="cb"  /> 
+    </checkbox-group>
+    <text style="font-size:18px;color: #2188fe;">我已知晓</text> 
+    </view>
+    <button  style="width: 100%;margin-top: 10%; position: relative;margin-bottom: 50px;" 	 disabled="{{disabled}}" class="Certification" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" bindtap="into">进入小程序</button>
+</view>
+</view>
+</view>

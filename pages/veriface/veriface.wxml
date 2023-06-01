@@ -1,0 +1,29 @@
+<!--pages/veriface/veriface.wxml-->
+<view class="container">
+  <view style="margin-top: -80px; display: flex;justify-content: space-evenly;align-items: baseline; height: 300px;width: 100%;">
+    <view bindtap="touxiang">
+      <image style="width: 54pt;height: 56pt;" src="../../img/mid.png" mode=""/>
+      <view style="display: flex;justify-content: center;color: #fff;">头像面</view>
+    </view>
+    <image style="padding-bottom: 30px; width: 12pt;height: 7.5pt;"src="../../img/jiantou.png" mode=""/>
+    <view  bindtap="guohui">
+      <image style="width: 54pt;height: 56pt;"src="../../img/beimian.png" mode=""/>
+      <view style="display: flex;justify-content: center;color: #fff;">国徽面</view>
+    </view>
+    <image  style="padding-bottom: 30px;width: 12pt;height: 7.5pt;"src="../../img/jiantou.png" mode=""/>
+    <view>
+       <image  style="width: 72pt;height: 75pt;" src="../../img/renlian.png" mode=""/>
+       <view style="display: flex;justify-content: center;color: #fff;">人脸认证</view>
+    </view>
+   
+  </view>
+</view>
+<view  class="content"> 
+  
+<view class="IDcard">
+  <view>
+     <image src="../../img/rlsb.png" style="width: 182pt;height: 105pt;" mode=""/>
+  </view>
+</view>
+  <button bindtap="veriface" style="font-size: 25px;display: flex;justify-content: center; align-items: center; border-radius: 10px; color: #fff;width: 80%;background-color: #2188fe;">人脸认证</button>
+</view>

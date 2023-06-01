@@ -1,0 +1,20 @@
+/* pages/details/details.wxss */
+page{
+  height: 100%;
+}
+.data{
+  width: 100%;
+  position: absolute;
+  background-color: #fff;
+  height: 100%;
+}
+.data>view{
+  margin: 20px 10px 20px 10px;
+}
+.data>view>text{
+  word-wrap: break-word;
+  text-align: center;
+}
+.data>view>button{
+  width: 130px;
+}
