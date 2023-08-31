@@ -1,0 +1,12 @@
+<view style="color: blanchedalmond;display: flex;justify-content: center;margin-top: 30%;position: absolute;margin-left: 25%;">
+  请将身份证横向放置于框内拍摄
+</view>
+<camera  device-position="back" flash="off" style="width: 95%; height: 30%;margin-left: 2.5%;margin-top: 40%;margin-bottom: 40%;">
+<!-- <cover-view class="id_m">
+      <cover-image class="img" src="https://img-blog.csdnimg.cn/20210126144225906.png"></cover-image>
+    </cover-view> -->
+</camera>
+<view style="background-color: black;position: fixed;width: 100%;height: 15%;">
+  <image bindtap="takePhoto" style="width: 20%;height: 70%;margin-left: 40%;margin-top: 2%;" src="../../img/1b542c4d8e1798a02cb194d2628e1d9.png" mode=""/>
+</view>
+ <canvas canvas-id="photoCanvas" style="display: none;"></canvas>

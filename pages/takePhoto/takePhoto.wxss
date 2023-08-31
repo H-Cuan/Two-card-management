@@ -1,0 +1,21 @@
+/* pages/takePhoto/takePhoto.wxss */
+page{
+  height: 100%;
+  position: absolute;
+  background-color: black;
+}
+.id_m {
+  height: 85vh; width: 105vw;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  position: absolute;
+}
+.id_m .img {
+  width: 600rpx;
+  height: 900rpx;
+  display: block;
+  position: absolute;
+  left: 0; right: 0; margin: auto auto;
+  top: 0; bottom: 0;
+}

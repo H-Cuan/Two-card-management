@@ -1,0 +1,47 @@
+<image style=" height: 60%;width: 100%;background-size:cover;position: fixed;" src="../../img/background.png" mode=""/>
+<view wx:if="{{show}}" style="width: 100%;height: 100%;background-color:rgba(0,0,0,0.5);z-index: 1;position: absolute;"></view>
+<view class="body">
+  <view wx:if="{{show}}" style="display: flex;flex-wrap: wrap;justify-content: center;align-items: center; position: fixed;z-index: 222;border-radius: 15px; width: 80%;height: 30%;background-color: #fff;margin: 50% 10% 50% 10%;">
+<view style="font-size: 1.1em;display: flex;justify-content: center;">绑定设备</view>
+<view style="font-size: 18px; width: 100%;display: flex;justify-content:space-around;align-items: center;">
+设备号:<input bindinput="bangdingshebei" style="margin-left:5px;" placeholder="请输入设备号" type="text"/>
+</view>
+<view style="display: flex;justify-content: space-around; width: 100%;">
+  <button bindtap="cancel" style="width: 40%; color: #2188FE;background-color: #fff;border: 1px #2188FE solid;">取消</button>
+  <button bindtap="confirm" style="width: 40%; color: #fff;background-color: #2188FE;">确认</button>
+</view>
+</view>
+  <view class="container">
+    <icon type="search" bindtap="search" size="26"></icon>
+      <input value="{{search}}" bindconfirm="search"  placeholder-style="color:#d3d3d3;" bindinput="searchData" placeholder="请输入姓名查询" type="index"/>
+      <view style="display: flex;width: 100%;margin-top: 5%;align-items: center;justify-content: space-evenly;">
+      <image bindtap="liebiao" src="../../img/liebiao.png" style="width: 45%;height: 55pt;" mode=""/>
+      <image bindtap="xiezhu" src="../../img/xiezhu.png" style="width: 45%;height: 55pt;;" mode=""/>
+      </view>
+      <view  style="font-weight: bold; color: #fff;margin-top: 5%;margin-left: -70%;">最近申请</view>
+      <scroll-view  	scroll-y style="height:85%;  margin-top: 3%;">
+      <view wx:if="{{isShow}}" class="list">
+        <block wx:for="{{list}}" wx:key="id">
+             <view class="listC">
+                <view class="listContent">
+                 <image style="width: 90px;height: 120px;border-radius: 8px;" src="{{item.photo}}" mode=""/>
+                 <view class="listRight">
+                 <view> <text style="font-weight: bold;font-size: 1.2em;">{{item.name}}</text><text style="font-size: 0.8em;color: #4199fe;margin-left: 5px;">{{item.sex}}</text><view id="{{item.detail_id}}" bindtap="toDetail" style="position: absolute;margin-left: 43%; color: #4199fe;display: flex;align-items: center;">查看<image src="../../img/ebc285b2ec8f6d026303e5c4a8c956a.png" style="margin-left: 2px; width: 7.14pt;height: 9.55pt;" mode=""/></view></view>
+                  <view>{{item.nation}}</view>
+                  <view>{{item.birthday}}</view>
+                  <text style="word-wrap: break-word;margin: 10px 0 10px 0;">{{item.address}}</text>
+                 </view>
+                 <view>
+                 </view>
+                </view>
+             </view> 
+        </block>
+     
+     
+      </view>
+      <view wx:if="{{UNShow}}" >
+        <button bindtap="bangding" style="margin-top: 50%; width: 80%;background-color: #4199fe;color: #fff;">绑定设备</button>
+      </view>
+      </scroll-view>
+  </view>
+</view>

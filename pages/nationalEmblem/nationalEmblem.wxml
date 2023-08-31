@@ -1,0 +1,103 @@
+<!--pages/nationalEmblem/nationalEmblem.wxml-->
+<view class="container">
+  <view style="margin-top: -80px; display: flex;justify-content: space-evenly;align-items: baseline; height: 300px;width: 100%;">
+    <view>
+      <image style="width: 54pt;height: 56pt;" src="../../img/mid.png" mode=""/>
+      <view style="display: flex;justify-content: center;color: #fff;">头像面</view>
+    </view>
+    <image  style="padding-bottom: 30px; width: 12pt;height: 7.5pt;"src="../../img/jiantou.png" mode=""/>
+    <view>
+      <image style="width: 72pt;height: 75pt;"src="../../img/beimian.png" mode=""/>
+      <view style="display: flex;justify-content: center;color: #fff;">国徽面</view>
+    </view>
+    <image  style="padding-bottom: 30px;width: 12pt;height: 7.5pt;"src="../../img/jiantou.png" mode=""/>
+    <view>
+       <image  style="width: 54pt;height: 56pt;" src="../../img/renlian.png" mode=""/>
+       <view style="display: flex;justify-content: center;color: #fff;">人脸认证</view>
+    </view>
+   
+  </view>
+</view>
+<view wx:if="{{input}}" class="input">
+  
+  <view>
+    <view style="margin-top: 30px;display: flex;justify-content: left;margin-left: 30px;">
+    <text style="width:100px">签发机关</text>:<input style="margin-left: 20px;width: 100%;" 	disabled="true"bindblur="cantInput" placeholder="{{Authority}}"type="text"/>
+    </view>
+   <view style="display: flex;justify-content: center;margin-top: 10px;">
+    <view style=" width: 90%;height: 1px; background: #ccc;"></view>
+   </view>
+    <view style="margin-top: 10px;display: flex;justify-content: left;margin-left: 30px;">
+    <text style="width:100px">有限期限</text>:<input style="width: 100%;margin-left: 20px;" placeholder="{{validity}}" bindblur="cantInput"disabled="true"type="text"/>
+    </view>
+    <view style="display: flex;justify-content: center;margin-top: 10px;">
+    <view style=" width: 90%;height: 1px; background: #ccc;"></view>
+   </view>
+  </view>
+  <view wx:if="{{Indate}}">
+    <view style="margin-top: 50px; display: flex;justify-content: center;align-items: center;">
+    <image style="width: 104pt;height: 104pt;" src="../../img/youxiaoqinei.png" mode=""/>
+  </view>
+  <view style="display: flex;justify-content: center; margin-top: 20px;font-size: 18px;">证件在有效期内</view>
+  </view>
+  <view wx:if="{{NotIndate}}">
+    <view style="margin-top: 50px; display: flex;justify-content: center;align-items: center;">
+    <image style="width: 104pt;height: 104pt;" src="../../img/shixiao.png" mode=""/>
+  </view>
+  <view style="display: flex;justify-content: center; margin-top: 20px;font-size: 18px;">证件不在有效期内</view>
+  </view>
+  <view wx:if="{{Indate}}" style="display: flex;margin-top: 80px;justify-content: space-around;position: relative;">
+    <button bindtap="UploadAgain" style="background: #fff;border: #2b8dfe solid 1px; height: 50px;display: flex;justify-content: center;font-size: 18px;border-radius: 8px; align-items: center;width: 45%;  color: #2b8dfe;">重新上传</button>
+    <button bindtap="next" style="width: 45%; color:#fff;background: #2b8dfe;border-radius: 8px;display: flex;justify-content: center;align-items: center;">下一步</button>
+  </view>
+  <view wx:if="{{NotIndate}}" style="display: flex;margin-top: 80px;justify-content: space-around;position: relative;">
+    <button bindtap="exit" style="background: #2188fe; height: 50px;width: 90%;color: #fff;display: flex;justify-content: center;align-items: center;font-size: 18px;">退 出 系 统</button>
+  </view>
+</view>
+<view wx:if="{{content}}" class="content"> 
+  
+<view class="IDcard">
+  <view>
+     <view style="margin-bottom: 150px;">
+    <image src="../../img/uTools_1679292581256.png" style="width: 15pt;height: 15pt;" mode=""/>
+  </view>
+  <view style="margin-top: 150px;">
+    <image src="../../img/uTools_1679292581256.png" style="width: 15pt;transform: rotate(270deg);height: 15pt;" mode=""/>
+  </view>
+  </view>
+ 
+  <view>
+     <image src="../../img/ghm.png" style="width: 182pt;height: 105pt;" mode=""/>
+  </view>
+  <view>
+     <view style="margin-bottom: 150px;">
+    <image src="../../img/uTools_1679292581256.png" style="width: 15pt;transform: rotate(90deg); height: 15pt;" mode=""/>
+  </view>
+  <view style="margin-top: 150px;">
+    <image src="../../img/uTools_1679292581256.png" style="transform: rotate(180deg);width: 15pt;height: 15pt;" mode=""/>
+  </view>
+  </view>
+ 
+</view>
+
+  <button bindtap="shooting" style="font-size: 25px;display: flex;justify-content: center; align-items: center; border-radius: 10px; color: #fff;width: 80%;background-color: #2188fe;">拍摄背面</button>
+
+</view>
+<view wx:if="{{footer}}" class="footer">
+  <view style="display: flex;">
+    <view style="margin-top: 10px; width: 50px;height: 3px; background: linear-gradient(to left,#ccc,#ffffff);"></view>
+    <view style="margin-top: 7px; height: 8px;width: 8px;background: #ccc;transform: rotate(45deg);"></view>
+  </view>
+<text style="font-size: 16px;margin: 0px 15px; font-weight: bold;">拍 摄 身 份 证 要 求</text>
+<view style="display: flex;">
+  <view style="margin-top: 7px; height: 8px;width: 8px;background: #ccc;transform: rotate(45deg);"></view>
+    <view style="margin-top: 10px; width: 50px;height: 3px; background: linear-gradient(to right,#ccc,#ffffff);"></view>
+  </view>
+  <view style="display: flex;justify-content: center;flex-wrap: wrap;margin-top: -20px;color: #999999;">
+    <view>大陆公民持有的本人有效二代身份证</view>
+    <view style="margin-top: -18px;">拍摄时确保身份证<text style="color: #3493fe;">边框完整，字体清晰，亮度均匀</text> </view>
+  </view>
+  <view style=" width: 100%;height: 40%;display: flex;justify-content: center;">
+    <image style="width: 80%; height: 100%;" src="../../img/sfzsl.png" mode=""/>
+  </view>
+</view>

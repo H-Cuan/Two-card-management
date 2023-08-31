@@ -1,0 +1,72 @@
+/* pages/login/login.wxss */
+page{
+  width: 100%;
+  height: 100%;
+}
+checkbox .wx-checkbox-input{
+  border-radius: 50%;/* 圆角 */
+  width: 46rpx; /* 背景的宽 */
+  height: 46rpx; /* 背景的高 */
+}
+image{
+  height: 60%;
+  width: 100%;
+  background-size:cover;
+  position: fixed;
+}
+.title{
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  background-size: 100%;
+  height: 40%;
+  width: 100%; 
+  position: relative;
+  }
+.title>view{
+  margin-left: 5%;
+  margin-top: 20%;
+}
+.title>view>view{
+  margin-top: 5%;
+}
+.content{
+  position: relative;
+  height: calc(60% + 50px);
+  border-radius: 40px;
+  margin-top: -50px;
+  background-color: #fff;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+@font-face {
+  font-family: "iconfont"; /* Project id 3496879 */
+  src: url('//at.alicdn.com/t/c/font_3496879_2mln4vswmlo.woff2?t=1681883871410') format('woff2'),
+       url('//at.alicdn.com/t/c/font_3496879_2mln4vswmlo.woff?t=1681883871410') format('woff'),
+       url('//at.alicdn.com/t/c/font_3496879_2mln4vswmlo.ttf?t=1681883871410') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-shouji:before {
+  content: "\e600";
+}
+
+.icon-lock-full:before {
+  content: "\e881";
+}
+
+.icon-jiantouyou:before {
+  content: "\e62d";
+}
+
+.icon-sousuo:before {
+  content: "\e653";
+}

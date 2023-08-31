@@ -1,0 +1,34 @@
+<image src="../../img/background.png" mode=""/>
+<view class="title">
+<view>
+  <view style="font-size: 30px;">你好！</view><br/>
+  <view style="font-size: 30px;"> 欢迎来到两卡治理系统</view><br/>
+  <view style="font-size: 12px;">*手机号密码登录</view>  
+</view>
+</view>
+<view class="content">
+  <view style="width: 90%;margin: 40px 0 0 30px;">
+      <view style="font-size: 1.2em; display: flex;align-items: center;">
+       <view style="width:13pt;height: 19pt;margin-right: 5px;display: flex;align-items: center;">
+        <image src="../../img/sjh.png" style="width:13pt;height: 17pt;position: absolute;" mode=""/>
+      </view> 
+       手机号</view>
+      <input style="width: 90%;margin-top: 20px;" bindinput="inputphone" value="{{tel}}" placeholder="请输入手机号"/>
+      <view style="border-bottom:1px #ccc solid; width: 90%;margin-top: 10px;"></view>
+  </view>
+  <view style="width: 90%;margin: -15% 0 0 30px;">
+      <view style="font-size: 1.2em;display: flex;align-items: center;"> 
+        <view style="width:13pt;height: 19pt;margin-right: 5px;display: flex;align-items: center;">
+        <image src="../../img/mm.png" style="width:13pt;height: 17pt;position: absolute;" mode=""/>
+      </view> 
+      密码</view>
+      <input style="width: 90%;margin-top: 20px;" value="{{password}}" bindconfirm="login" bindinput="inputpassword" password placeholder="请输入密码"/>
+      <view style="border-bottom:1px #ccc solid; width: 90%;margin-top: 10px;"></view>
+  </view>
+  <view style="display: flex;justify-content: center;width: 100%;">
+    <view style="margin: -30% 0 0 0px;font-size: 11px;padding-top: 50px;" > 
+  <checkbox-group bindchange="checkboxChange"><checkbox  value="cb" />登录即代表您已阅读并同意 <text style="color: #2188fe;">《用户服务协议》</text>和<text style="color: #2188fe;">《隐私权政策》</text> </checkbox-group>
+  <button bindtap="login" style="width: 100%;margin-top: 50px;background-color: #2188fe;color: #fff;border-radius: 15px;">登录</button>
+ </view>
+  </view>
+</view>
