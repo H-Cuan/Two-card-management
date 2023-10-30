@@ -13,7 +13,7 @@ Page({
 login(e){
 let tel = this.data.tel 
 let password = this.data.password
-if(this.data.checked==1){
+// if(this.data.checked==1){
   wx.request({
     url: 'https://lfzhnb.lfgw.net/api.TwoCardsPersonnel/login',
     data: {
@@ -38,14 +38,14 @@ if(this.data.checked==1){
       }
     }
   })
-}else{
-  wx.showToast({
-    mask:true,
-    title: '请勾选用户服务协议',
-    icon: 'error',
-    duration: 2000//持续的时间
-  })
-}
+// }else{
+//   wx.showToast({
+//     mask:true,
+//     title: '请勾选用户服务协议',
+//     icon: 'error',
+//     duration: 2000//持续的时间
+//   })
+// }
 },
 inputphone(e){
       this.data.tel = e.detail.value

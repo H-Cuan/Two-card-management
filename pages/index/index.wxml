@@ -37,7 +37,7 @@
     <button style="width: 80%;background-color: #2188fe;color: #fff;" bindtap="exit" >扫一扫</button>
   </view>
 </view>
-
+<!-- -->
 <view wx:if="{{typeShow}}" style="display: flex;flex-wrap: wrap;justify-content: center;align-items: center; position: fixed;z-index: 222;border-radius: 15px; width: 80%;height: 25%;background-color: #fff;margin: 60% 10% 50% 10%;">
 <view style="font-size: 1.3em;font-weight: 600;display: flex;justify-content: center;">核验类型</view>
 <view style="font-size: 18px; width: 100%;display: flex;justify-content:space-around;align-items: center;">
@@ -50,7 +50,8 @@
 </view>
 <view style="display: flex;justify-content: space-around; width: 100%;">
   <button bindtap="cancel" style="width: 40%; color: #2188FE;background-color: #fff;border: 1px #2188FE solid;">取消</button>
-  <button class="background" disabled="{{unConfirm}}" bindtap="confirm" style="width: 40%;">确认</button>
+  <button class="background"  bindtap="confirm" style="width: 40%;">确认</button>
+  <!-- disabled="{{unConfirm}}" -->
 </view>
 </view>
 <view  class="container" >
@@ -99,8 +100,8 @@
 
 
   <view wx:if="{{closeDialog}}" style="font-size: 15px; width: 90%;display: flex;justify-content: center; border-radius:20px ;background-color: #ffffff;z-index: 3; ">
-  <view style="margin-top: 2px; display: flex;justify-content: center;align-items: center; width: 45%;background-color: #2188fe;height: 5%;font-size: 20px;color: #e6f3ff;transform: perspective(30px) rotateX(-10deg); border-bottom-right-radius:15px ;border-bottom-left-radius:15px; position: absolute; ">
- <view style="margin-bottom: 15px;position: absolute; transform: perspective(30px) rotateX(10deg);font-weight: bold;color: #fff;">
+  <view style="margin-top: 2px; display: flex;justify-content: center;align-items: center; width: 45%;background-color: #2188fe;height: 40px;font-size: 20px;color: #e6f3ff;transform: perspective(30px) rotateX(-10deg); border-bottom-right-radius:15px ;border-bottom-left-radius:15px; position: absolute; ">
+ <view style="position: absolute; transform: perspective(30px) rotateX(10deg);font-weight: bold;color: #fff;">
   安全提示
  </view> 
   </view>

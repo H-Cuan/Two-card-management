@@ -1,4 +1,10 @@
 
-<camera wx:if="{{show}}" device-position="front" flash="off" style="width: 100%; height: 80%;">
+<camera wx:if="{{show}}" device-position="front" flash="off" style="width: 100%; height: 100%;">
+  <!-- <cover-image wx:if="{{show}}" bindtap="takePhoto" style="width: 100rpx;height: 100rpx;" src="../../img/1b542c4d8e1798a02cb194d2628e1d9.png" mode=""></cover-image> -->
+  <cover-view style="position: absolute;left: 43%;bottom: 200rpx;">
+  <cover-view style="width: 120rpx;height: 120rpx;background-size: cover;background-image: url('../../img/1b542c4d8e1798a02cb194d2628e1d9.png');">
+<button bindtap="takePhoto" disabled="{{notBind}}" style="width: 120rpx;height: 120rpx;border-radius: 100%;background: rgb(255,255,255,0.1);"></button>
+  </cover-view>
+  </cover-view>
 </camera>
-<button  wx:if="{{show}}"type="primary" bindtap="takePhoto">拍照</button>
+<!-- <button disabled="{{notBind}}" wx:if="{{show}}" type="primary" bindtap="takePhoto">拍照</button> -->

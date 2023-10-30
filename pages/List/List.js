@@ -89,15 +89,25 @@ cardType:1
   onReady() {
 
   },
+  catchTouchMove() { return false; },
   swichNav: function (e) {
     console.log(e);
     var that = this;
     if(e.target.dataset.current=="0"){
       wx.setStorageSync('showBind',0)
-    }else{
+    }else if(e.target.dataset.current=="1"){
       wx.setStorageSync('showBind',1)
+    }else{
+      wx.setStorageSync('showBind',2)
     }
-    e.target.dataset.current=="0"?this.data.cardType=1:this.data.cardType=2
+    
+    if(e.target.dataset.current=="0"){
+      this.data.cardType=1
+    }else if(e.target.dataset.current=="1"){
+      this.data.cardType=2
+    }else{
+      this.data.cardType=3
+    }
     console.log(this.data.cardType)
     this.getList()
     if (this.data.currentTab === e.target.dataset.current) {
@@ -110,6 +120,9 @@ cardType:1
     },
      
     getList(){
+      wx.showLoading({
+        title: '加载中',
+      });
       wx.request({
         url: 'https://lfzhnb.lfgw.net/api.TwoCardsPersonnel/getBankList',
         data:{
@@ -132,6 +145,7 @@ cardType:1
           this.setData({
             list:res.data.data.list
           })
+          wx.hideLoading();
         }
       })
     },
@@ -141,6 +155,8 @@ cardType:1
   onShow() {
     const that = this
     this.getList()
+    console.log(wx.getStorageSync('type'))
+    wx.getStorageSync('type')==1?that.setData({showSwichNav:true}):that.setData({showSwichNav:false})
   },
 
   /**

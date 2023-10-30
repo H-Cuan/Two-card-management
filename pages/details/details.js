@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    signature:'',
     cardNumber:'',
     type:'',
     showBind:false,
@@ -17,7 +18,8 @@ Page({
    */
   cancel(){
     this.setData({
-      show:false
+      show:false,
+      signatureShow:false
     })
   },
   // 扫描银行卡
@@ -211,6 +213,75 @@ if (regex.test( this.data.cardNumber)) {
     var s = (date.getSeconds() < 10 ? '0'+date.getSeconds() : date.getSeconds());
     return Y+M+D+h+m+s;
   },
+  downLoadNotification(){
+    wx.setStorageSync('qianming', this.data.signature)
+  wx.navigateTo({
+    url: '../../pages/saveSignature/saveSignature',
+  })
+// this.setData({
+//   signatureShow:true
+// })
+  },
+  confirmSignature(){
+    this.downloadImage()
+  },
+  // 在小程序页面中的方法中调用下载图片的函数
+downloadImage: function() {
+  var that = this;
+  wx.downloadFile({
+    url: that.data.signature,
+    success: function(res) {
+      if (res.statusCode === 200) {
+        // 保存图片到本地
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success: function() {
+            wx.showToast({
+              title: '保存成功',
+              icon: 'success',
+              duration: 2000
+            });
+          },
+          fail: function() {
+            wx.showToast({
+              title: '保存失败',
+              icon: 'none',
+              duration: 2000
+            });
+          }
+        });
+      }
+    },
+    fail: function(res) {
+      console.log(res)
+      wx.showToast({
+        title: '下载失败',
+        icon: 'error',
+        duration: 2000
+      });
+    }
+  });
+},
+clickSignature: function(e){
+  var imgUrl = this.data.signature;
+  wx.previewImage({
+    urls: [imgUrl], //需要预览的图片http链接列表，注意是数组
+    current: '', // 当前显示图片的http链接，默认是第一个
+    success: function (res) { },
+    fail: function (res) { },
+    complete: function (res) { },
+  })
+},
+clickImg: function(e){
+  var imgUrl = this.data.imgUrl;
+  wx.previewImage({
+    urls: [imgUrl], //需要预览的图片http链接列表，注意是数组
+    current: '', // 当前显示图片的http链接，默认是第一个
+    success: function (res) { },
+    fail: function (res) { },
+    complete: function (res) { },
+  })
+},
   onLoad(options) {
     if(wx.getStorageSync('showBind')==1){
       this.setData({
@@ -245,6 +316,8 @@ if (regex.test( this.data.cardNumber)) {
       method:"POST",
       success:(res)=>{
         console.log(res)
+        that.data.imgUrl = res.data.data.photo
+        that.data.signature = res.data.data.signature
         var date = new Date(res.data.data.update_time * 1000); // 将时间戳转换为毫秒级别
 var year = date.getFullYear(); // 获取年份
 var month = date.getMonth() + 1; // 获取月份，注意月份从0开始，所以需要加1

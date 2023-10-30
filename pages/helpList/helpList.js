@@ -5,18 +5,15 @@ Page({
    * 页面的初始数据
    */
   data: {
+    signature:'',
+    shifouyinhangka:false,
+    shifoushoujika:false,
+    gaozhiunConfirm:true,
+    index:0,
     currentTab:0,
 cardType:1,
 name:'',
 mchList:[
-  {
-    id:1,
-    name:'身份核验'
-  },
-  {
-    id:2,
-    name:'办卡核验'
-  }
 ]
   },
   searchData(e){
@@ -105,41 +102,10 @@ mchList:[
     })
   },
   confirm(){
-    wx.showModal({
-      title: '系统信息',
-      editable:true,
-      placeholderText:'请输入开卡人手机号',
-      complete: (res) => {
-        console.log(res)
-        if (res.cancel) {
-        }
-        if (res.confirm) {
-          let regex = /^1[3456789]\d{9}$/;
-          if(regex.test(res.content)){
-            wx.setStorageSync('Info','')
-            wx.setStorageSync('phone',res.content)
-            const token = wx.getStorageSync('token')
-          wx.navigateTo({url:'../idEntity/idEntity?is_help=1&token=' + token})
-          }else{
-            wx.showModal({
-              title: '系统信息',
-              content: '请输入正确的手机号!',
-              complete: (res) => {
-                if (res.cancel) {
-                  
-                }
-            
-                if (res.confirm) {
-                  
-                }
-              }
-            })
-          }
-        
-        }
-      }
-    })
-   
+    wx.setStorageSync('cardType',this.data.cardType)
+this.setData({
+  gaozhi:true
+})
   },
   bindPickerChange(e){
     console.log(e)
@@ -161,10 +127,18 @@ mchList:[
     var that = this;
     if(e.target.dataset.current=="0"){
       wx.setStorageSync('showBind',0)
-    }else{
+    }else if(e.target.dataset.current=="1"){
       wx.setStorageSync('showBind',1)
+    }else{
+      wx.setStorageSync('showBind',2)
     }
-    e.target.dataset.current=="0"?this.data.cardType=1:this.data.cardType=2
+    if(e.target.dataset.current=="0"){
+      this.data.cardType=1
+    }else if(e.target.dataset.current=="1"){
+      this.data.cardType=2
+    }else{
+      this.data.cardType=3
+    }
     console.log(this.data.cardType)
     this.getList()
     if (this.data.currentTab === e.target.dataset.current) {
@@ -176,6 +150,9 @@ mchList:[
   }
     },
   getList(){
+    wx.showLoading({
+      title: '加载中',
+    });
     wx.request({
       url: 'https://lfzhnb.lfgw.net/api.TwoCardsPersonnel/getBankList',
       data:{
@@ -198,6 +175,58 @@ mchList:[
         this.setData({
           list:res.data.data.list
         })
+        wx.hideLoading();
+      }
+    })
+  },
+  catchTouchMove() { return false; },
+   toSignature(){
+    wx.removeStorageSync('signature')
+    wx.navigateTo({
+      url: '../signature/signature',
+    })
+  },
+  gaozhicancel(){
+this.setData({
+  gaozhi:false,
+  gaozhiunConfirm:true
+})
+  },
+  gaozhiconfirm(){
+    wx.showModal({
+      title: '联系方式',
+      editable:true,
+      placeholderText:'请输入联系方式',
+      complete: (res) => {
+        console.log(res)
+        if (res.cancel) {
+        }
+        if (res.confirm) {
+          let regex = /^1[3456789]\d{9}$/;
+          if(regex.test(res.content)){
+            wx.setStorageSync('Info','')
+            wx.setStorageSync('phone',res.content)
+            wx.setStorageSync('signature',this.data.signature)
+            const token = wx.getStorageSync('token')
+          wx.navigateTo({url:'../idEntity/idEntity?is_help=1&token=' + token}
+          )
+          }else{
+            wx.showModal({
+              title: '系统信息',
+              content: '请输入正确的手机号!',
+              complete: (res) => {
+                if (res.cancel) {
+                  
+                }
+            
+                if (res.confirm) {
+                  
+                }
+              }
+            })
+          }
+        
+        }
       }
     })
   },
@@ -205,11 +234,52 @@ mchList:[
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    this.setData({
-      unConfirm:true,
+    wx.getStorageSync('type')==1?this.setData({
+      shifouyinhangka:true,
+      showSwichNav:true,
+        mchList: [
+          {
+            id:1,
+            name:'身份核验'
+          },
+          {
+            id:2,
+            name:'办卡核验'
+          },
+          {
+            id:3,
+            name:'大额取现'
+          }
+        ]
+    }):this.setData({
+      shifoudianhuaka:true,
+      mchList: [
+        {
+          id:1,
+          name:'身份核验'
+        },
+        {
+          id:2,
+          name:'办卡核验'
+        }
+      ],
+      shifoushoujika:true,
+      showSwichNav:false
     })
-    wx.setStorageSync('showBind',1)
     const that = this
+    let pages = getCurrentPages();
+    let currPage = pages[pages.length-1];
+    console.log(currPage)
+    that.setData({
+      signature:currPage.data.signature
+    })
+    this.data.signature = currPage.data.signature
+    if(currPage.data.canInto==1){
+      this.setData({gaozhiunConfirm:false})
+    }else{
+      this.setData({gaozhiunConfirm:true})
+    }
+    wx.setStorageSync('showBind',1)
    this.getList()
   },
 
@@ -244,7 +314,7 @@ mchList:[
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage() {
-
+  onShareAppMessage(e) {
+console.log(e)
   }
 })

@@ -5,16 +5,9 @@ const app = getApp()
 Page({
   data: {
     mchList:[
-      {
-        id:1,
-        name:'身份核验'
-      },
-      {
-        id:2,
-        name:'办卡核验'
-      }
     ],
     id:'',
+    index:0,
     cardType:1,
     type:'',
     bankName:'',
@@ -25,10 +18,8 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
-    
+    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.6') // 如需尝试获取用户信息可改为false
   },
-  
   // 事件处理函数
   bindViewTap() {
     wx.navigateTo({
@@ -150,7 +141,15 @@ into(){
   },
   bindPickerChange(e){
     console.log(e)
-    e.detail.value=='0'? this.data.cardType=1 : this.data.cardType=2
+    if(e.detail.value=='0'){
+      this.data.cardType=1
+    }
+    if(e.detail.value=='1'){
+      this.data.cardType=2
+    }
+    if(e.detail.value=='2'){
+      this.data.cardType=3
+    }
     console.log(this.data.cardType)
     wx.setStorageSync('cardType',this.data.cardType)
     this.setData({
@@ -165,6 +164,7 @@ into(){
     })
   },
   confirm(){
+    wx.setStorageSync('cardType',this.data.cardType)
     wx.setStorageSync('signature',this.data.signature)
     wx.setStorageSync('phone',this.data.phoneNumber)
     const that = this
@@ -281,7 +281,22 @@ parseParams(path) {
                   that.data.type = res.data.data.type
                   wx.setStorageSync('type', res.data.data.type)
                   if(res.data.data.type==1){
+                  
                     that.setData({
+                      mchList: [
+                        {
+                          id:1,
+                          name:'身份核验'
+                        },
+                        {
+                          id:2,
+                          name:'办卡核验'
+                        },
+                        {
+                          id:3,
+                          name:'大额取现'
+                        }
+                      ],
                       bankName: res.data.data.name ,
                       yinhangka:true,
                       shoujika:false
@@ -289,6 +304,16 @@ parseParams(path) {
                     wx.hideLoading();
                   }else{
                     that.setData({
+                      mchList: [
+                        {
+                          id:1,
+                          name:'身份核验'
+                        },
+                        {
+                          id:2,
+                          name:'办卡核验'
+                        }
+                      ],
                       bankName: res.data.data.name ,
                       yinhangka:false,
                       shoujika:true
@@ -325,6 +350,7 @@ parseParams(path) {
   })
   },
   toSignature(){
+    wx.removeStorageSync('signature')
     wx.navigateTo({
       url: '../signature/signature',
     })
@@ -396,6 +422,20 @@ wx.getLocation({
       })
         if(res.data.data.type==1){
           that.setData({
+            mchList: [
+              {
+                id:1,
+                name:'身份核验'
+              },
+              {
+                id:2,
+                name:'办卡核验'
+              },
+              {
+                id:3,
+                name:'大额取现'
+              }
+            ],
             bankName: res.data.data.name ,
             yinhangka:true,
             shoujika:false
@@ -403,6 +443,16 @@ wx.getLocation({
           wx.hideLoading();
         }else{
           that.setData({
+            mchList: [
+              {
+                id:1,
+                name:'身份核验'
+              },
+              {
+                id:2,
+                name:'办卡核验'
+              }
+            ],
             bankName: res.data.data.name ,
             yinhangka:false,
             shoujika:true

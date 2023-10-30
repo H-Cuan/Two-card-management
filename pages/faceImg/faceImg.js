@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    notBind:false,
     type:'1',
 data:{
 }
@@ -17,8 +18,21 @@ data:{
     }
     return result;
   },
+  tempToBase64(e){
+    wx.getFileSystemManager().readFile({
+      filePath: e,
+      encoding: 'base64',
+      success: function(result) {
+        const img = 'data:image/jpeg;base64,' + result.data
+        console.log(img)
+      }
+      })
+      },
 //拍摄照片
  takePhoto() {
+   this.setData({
+    notBind:true
+   })
    const that =this
    wx.login({
     success :(res) =>{
@@ -33,24 +47,23 @@ data:{
           mask:true
         });
         console.log(res)
-        // wx.getFileSystemManager().readFile({
-        //   filePath: res.tempImagePath,
-        //   encoding: 'base64',
-        wx.uploadFile({
-          url: 'https://lfzhnb.lfgw.net/api.index/upload', //上传服务器地址
+        wx.getFileSystemManager().readFile({
           filePath: res.tempImagePath,
-          name: 'image',
-          formData: {
-            'image': res.tempImagePath
-          },
+          encoding: 'base64',
+        // wx.uploadFile({
+        //   url: 'https://lfzhnb.lfgw.net/api.index/upload', //上传服务器地址
+        //   filePath: res.tempImagePath,
+        //   name: 'image',
+        //   formData: {
+        //     'image': res.tempImagePath
+        //   },
           success: function(res) {
             console.log(res)
-            const ress = JSON.parse(res.data)
-            that.data.data.photo =ress.data
+            const img = 'data:image/jpeg;base64,' + res.data
+            that.data.data.photo =img
             const base64Str = that.data.data.photo; // 示例字符串，解码后为"This is a string"
             // const result = that.getBase64Substring(base64Str);
             // console.log(result);
-            
             that.data.data.photo = base64Str
             that.data.data.device_id = wx.getStorageSync('device_Id')
             console.log(that.data.type)
@@ -80,7 +93,8 @@ data:{
         }
                     }
                   })
-                }else{
+                }
+                if(wx.getStorageSync('cardType')==2){
                   wx.request({
                     url: 'https://lfzhnb.lfgw.net/api.index/insertTwoCardBankForCard',
                     data: that.data.data,
@@ -104,7 +118,29 @@ data:{
                     }
                   })
                 }
-              
+                if(wx.getStorageSync('cardType')==3){
+                  wx.request({
+                    url: 'https://lfzhnb.lfgw.net/api.index/insertTwoCardLarge',
+                    data: that.data.data,
+                    method:'POST',
+                    success:(res)=> {
+                      if(res.data.code==200){
+                        wx.showToast({
+                          title: '上传成功！',
+                          icon: 'success',
+                          duration: 1500
+                      })
+                        wx.navigateTo({url:'../audit/audit'})
+                      }else{
+                        wx.showToast({
+                          title: res.message,
+                          icon: 'error',
+                          duration: 1500
+                      })
+                      }
+                    }
+                  })
+                }
               }else{
                 that.data.data.token = wx.getStorageSync('token')
                 if(wx.getStorageSync('cardType')==1){
@@ -131,7 +167,8 @@ data:{
         
                     }
                   })
-                } else{
+                } 
+                if(wx.getStorageSync('cardType')==2){
                   wx.request({
                     url: 'https://lfzhnb.lfgw.net/api.TwoCardsPersonnel/insertTwoCardBankForCard',
                     data: that.data.data,
@@ -156,7 +193,29 @@ data:{
                     }
                   })
                 }
-              
+                if(wx.getStorageSync('cardType')==3){
+                  wx.request({
+                    url: 'https://lfzhnb.lfgw.net/api.index/insertTwoCardLarge',
+                    data: that.data.data,
+                    method:'POST',
+                    success:(res)=> {
+                      if(res.data.code==200){
+                        wx.showToast({
+                          title: '上传成功！',
+                          icon: 'success',
+                          duration: 1500
+                      })
+                        wx.navigateTo({url:'../audit/audit'})
+                      }else{
+                        wx.showToast({
+                          title: res.message,
+                          icon: 'error',
+                          duration: 1500
+                      })
+                      }
+                    }
+                  })
+                }
               }
             }
             if(that.data.type==2){
@@ -266,10 +325,9 @@ data:{
         //     'image': res.tempImagePath
         //   },
         //   success: (res) => {
-            
         //   },
         // })
-     
+
         setTimeout(function () {
           wx.hideLoading()
         }, 2000)
@@ -280,7 +338,6 @@ data:{
     })
   }
   })
-   
   },
   /**
    * 生命周期函数--监听页面加载
@@ -323,7 +380,9 @@ data:{
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    this.setData({
+      notBind:false
+     })
   },
 
   /**

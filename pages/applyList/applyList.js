@@ -42,6 +42,9 @@ liebiao(){
 },
 search() {
   if(this.data.status==1){
+    wx.showLoading({
+      title: '加载中',
+    });
     const searchText = this.data.name;
     if (searchText.trim() === '') {
       wx.request({
@@ -65,6 +68,7 @@ search() {
           this.setData({
             list:res.data.data.list
           })
+          wx.hideLoading();
         }
       })
       return;
@@ -167,6 +171,7 @@ bangding(e){
   })
 },
 toDetail(e){
+  console.log(e)
   console.log(e.currentTarget.id)
   wx.setStorageSync('detail_id',e.currentTarget.id)
   wx.navigateTo({url:'../details/details'})
@@ -208,6 +213,9 @@ toDetail(e){
         console.log(res)
         that.data.status = res.data.data.status
     if(res.data.data.status==1){
+      wx.showLoading({
+        title: '加载中',
+      });
       wx.setStorageSync('device_Id', res.data.data.device_id)
       wx.request({
         url: 'https://lfzhnb.lfgw.net/api.TwoCardsPersonnel/getBankList',
@@ -232,6 +240,7 @@ toDetail(e){
             UNShow:false,
             list:res.data.data.list
           })
+          wx.hideLoading();
         }
       })
     }else{

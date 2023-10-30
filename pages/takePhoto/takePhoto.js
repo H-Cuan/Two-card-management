@@ -5,9 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    imgWidth: 0,
+    imgHeight: 0,
+    imgTop: 0,
+    imgLeft: 0,
   },
   takePhoto() {
+    const that = this
+    wx.getSystemInfo({
+      success: function (res) {
+      console.log(res)}
+    })
     const ctx = wx.createCameraContext()
     ctx.takePhoto({
       quality: 'high',
@@ -17,7 +25,12 @@ Page({
           mask:true
         });
         console.log(res)
-        this.tempToBase64(res.tempImagePath)
+        wx.showLoading({
+          title: '加载中',
+          mask:true
+        });
+        console.log(res)
+        that.tempToBase64(res.tempImagePath)
       }
     })
   },
@@ -47,14 +60,28 @@ wx.navigateBack({//返回
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.ctx = wx.createCameraContext()
+    let {windowWidth, windowHeight} = wx.getSystemInfoSync()
+    console.log(windowWidth, windowHeight)
+    var that = this;
+    const query = wx.createSelectorQuery()
+    query.select('.img').boundingClientRect()
+    query.exec((res) => {
+      console.log(res)
+      that.setData({
+        imgWidth: 550 / 750 * wx.getSystemInfoSync().windowWidth,
+        imgHeight: 900 / 750 * wx.getSystemInfoSync().windowWidth,
+        imgTop: 100 / 750 * wx.getSystemInfoSync().windowWidth,
+        imgLeft: 100 / 750 * wx.getSystemInfoSync().windowWidth
+      })
+    })
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-
+    
   },
 
   /**

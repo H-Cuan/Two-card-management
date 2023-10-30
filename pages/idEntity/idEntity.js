@@ -163,7 +163,7 @@ fail(e){
   onLoad(options) {
     const that = this
       console.log(options)
-      if(options.haveImg&&options.haveImg==1){
+      if(options&&options.haveImg&&options.haveImg==1){
         wx.showLoading({
           title: '加载中',
           mask:true
@@ -213,7 +213,7 @@ fail(e){
           }
         })
       }
-    if(options.is_help){
+    if(options&&options.is_help){
         wx.setStorageSync('token', options.token)
       wx.setStorageSync('is_help', options.is_help)
     }else{
@@ -346,7 +346,7 @@ this.setData({
   //重新上传
   UploadAgain(e){
     wx.setStorageSync('Info','')
-   wx.navigateBack()
+   this.onLoad()
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

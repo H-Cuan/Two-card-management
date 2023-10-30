@@ -91,13 +91,13 @@ display: flex;
    
   .tab-item {
    
-  width: 50%;
+  width: 100%;
    
   text-align: center;
    
   font-size: 15px;
-   
-  color: #777;
+   font-weight: bold;
+  color: #000;
    
   }
    
@@ -111,8 +111,8 @@ display: flex;
    
   .on {
    
-  color: blue;
+  color: #2188FE;
    
-  border-bottom: 5rpx solid blue;
+  border-bottom: 5rpx solid #2188fe;
    
   }

@@ -187,37 +187,35 @@ Page({
       canvasId: 'handWriting',
       success(res) {
         console.log(res)
-        wx.uploadFile({
-          url: 'https://lfzhnb.lfgw.net/api.index/upload', //上传服务器地址
-          filePath: res.tempFilePath,
-          name: 'image',
-          formData: {
-            'image': res.tempFilePath
-          },
-          success: function(res) {
-            console.log(res)
-            const ress = JSON.parse(res.data)
-            setTimeout(function () {
-              wx.hideLoading()
-              let pages = getCurrentPages();//当前页面
-    let prevPage = pages[pages.length-2];//上一页面
-    prevPage.setData({//直接给上移页面赋值
-      signature: ress.data,
-      canInto:1
-    });
-    wx.navigateBack({//返回
-      delta:1
-    })
-            }, 2000)
-          }
-        })
+     that.tempToBase64(res.tempFilePath)
         // 此处就签名成功，返回res
         //filePath: res.tempFilePath  调用微信的图片上传的方法，即可完成签名图片的上传。
       }
     })
 
   },
- 
+  tempToBase64(e){
+    wx.getFileSystemManager().readFile({
+      filePath: e,
+      encoding: 'base64',
+      success: function(result) {
+        const img = 'data:image/jpeg;base64,' + result.data
+        console.log(img)
+        setTimeout(function () {
+          wx.hideLoading()
+          let pages = getCurrentPages();//当前页面
+let prevPage = pages[pages.length-2];//上一页面
+prevPage.setData({//直接给上移页面赋值
+  signature: img,
+  canInto:1
+});
+wx.navigateBack({//返回
+  delta:1
+})
+        }, 2000)
+      }
+      })
+      },
   //画两点之间的线条；参数为:line，会绘制最近的开始的两个点；
   pointToLine (line) {
     this.calcBethelLine(line);

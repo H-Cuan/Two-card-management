@@ -115,15 +115,15 @@ getInfo(){
     },
     success:(res)=>{
       console.log(res)
-      if(res.data.data.avatar!=''&&null){
+      if(res.data.data.avatar!=''||null){
         that.setData({
-          image:res.data.data.avatar,
+          image:'../../img/8303f71d3ddd2adc4917d445886f3a7.png',
           name:res.data.data.name,
           tel:res.data.data.tel
       })
       }else{
         this.setData({
-          image:"../../img/8303f71d3ddd2adc4917d445886f3a7.png",
+          image:res.data.data.avatar,
           name:res.data.data.name,
           tel:res.data.data.tel
         })

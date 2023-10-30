@@ -1,7 +1,7 @@
 <!--pages/details/details.wxml-->
 <view wx:if="{{show}}" style="width: 100%;height: 100%;background-color:rgba(0,0,0,0.5);z-index: 1;position: fixed;"></view>
+<view wx:if="{{signatureShow}}" style="width: 100%;height: 100%;background-color:rgba(0,0,0,0.5);z-index: 1;position: fixed;"></view>
 <view class="data">
-
   <view wx:if="{{show}}" style="display: flex;flex-wrap: wrap;justify-content: center;align-items: center; position: fixed;z-index: 222;border-radius: 15px; width: 80%;height: 30%;background-color: #fff;margin: 50% 10% 50% 10%;">
 <view style="font-size: 1.1em;display: flex;justify-content: center;">绑定卡号</view>
 <view style="font-size: 18px; width: 100%;display: flex;justify-content:space-around;align-items: center;">
@@ -15,21 +15,29 @@
   <button bindtap="confirm" style="width: 40%; color: #fff;background-color: #2188FE;">确认</button>
 </view>
 </view>
-
-
+<view wx:if="{{signatureShow}}" style="display: flex;flex-wrap: wrap;justify-content: center;align-items: center; position: fixed;z-index: 222;border-radius: 15px; width: 80%;height: 60%;background-color: #fff;margin: 30% 10% 50% 10%;">
+<view style="width: 100%;font-size: 1.2em;display: flex;justify-content: center;margin-top: -10pt;font-weight: 600;flex-wrap: wrap;">下载《告知书》</view>
+<image  style="width: 120pt;height: 180pt;border-radius: 15px;border: 0.5pt #ccc solid;" src="../../img/lQLPJwECJRa_PbzNAmDNAVywl8QWLV6OINQFBqRUgmMkAA_348_608.png" mode=""/>
+<image bindtap='clickSignature'  style="width: 100pt;height: 120pt;border-radius: 15px;border: 0.5pt #ccc solid;transform: rotate(-90deg)" src="{{data.signature}}" mode=""/>
+<view style="display: flex;justify-content: space-around; width: 100%;">
+  <button bindtap="cancel" style="width: 40%; color: #2188FE;background-color: #fff;border: 1px #2188FE solid;">取消</button>
+  <button bindtap="confirmSignature" style="width: 40%; color: #fff;background-color: #2188FE;">确认</button>
+</view>
+</view>
   <view style="margin-top: 20px;">认证照片：
   <view>
-    <image style="width: 100px;height: 150px;border-radius: 15px;" src="{{data.photo}}" mode=""/>
+    <image bindtap='clickImg' style="width: 100px;height: 150px;border-radius: 15px;" src="{{data.photo}}" mode=""/>
   </view>
   </view>
   <view>姓名：{{data.name}}<text></text></view>
   <view>性别：{{data.sex}}<text></text></view>
-  <view>民族：{{data.nation}}<text></text></view>
+  <!-- <view>民族：{{data.nation}}<text></text></view> -->
   <view>身份证号码：{{data.identity}}<text></text></view>
   <view>联系方式：{{data.apply_phone}}<text></text></view>
   <view >地址：{{data.address}}<text></text></view>
-  <view>证件有效期：{{data.indate}}<text></text></view>
+  <!-- <view>证件有效期：{{data.indate}}<text></text></view> -->
   <view style="color: #999;font-size: 14px;">{{data.update_time}}<text></text></view>
+  <view bindtap="downLoadNotification" style="color: blue;font-size: 15px;text-decoration: underline;">下载《告知书》<text></text></view>
   <view style="margin-top: 20%;display: flex;justify-content: center;align-items: center; color: red;">
     <view wx:if="{{abnormal}}" style="justify-content: center;align-items: center;display: flex;">
       <image src="../../img/jinggao.png" style="width: 15pt;height: 15pt;margin-right: 5px;" mode=""/><text > 该人员信息异常</text>

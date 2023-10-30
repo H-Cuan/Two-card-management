@@ -1,7 +1,124 @@
 
 <view class="page">
  
- 
+  <view wx:if="{{gaozhi}}" style="width: 100%;height: 120%;background-color:rgba(0,0,0,0.5);z-index: 55;position: fixed;"></view>
+  <view wx:if="{{gaozhi}}" style="display: flex;flex-wrap: wrap;justify-content: center;align-items: center; position: absolute;z-index: 222;border-radius: 15px; width: 90%;background-color: #fff;margin: 20% 5% 50% 5%;">
+  <view wx:if="{{shifouyinhangka}}" style="width: 80%;">
+    <view style="display:flex;flex-wrap: wrap;justify-content: center;width:100%;font-weight: bold;">
+      <view style="margin-top: 2px; display: flex;justify-content: center;align-items: center; width: 45%;background-color: #2188fe;height: 40px;font-size: 20px;color: #e6f3ff;transform: perspective(30px) rotateX(-10deg); border-bottom-right-radius:15px ;border-bottom-left-radius:15px; position: absolute; ">
+ <view style="position: absolute; margin-top: -5pt; transform: perspective(30px) rotateX(10deg);font-weight: bold;color: #fff;">
+  安全提示
+ </view> 
+  </view>
+  <view>
+    
+  </view>
+     <view style="display: flex;justify-content: center;margin-top: 40pt;">出租、出借、买卖银行卡</view>  
+    <view>
+      涉嫌违法犯罪告知书
+    </view>
+
+  </view>
+  <view style=" margin-top:15px;">
+    一、任何单位或个人办理的银行账户（含银行卡），不得出租、出借、出卖给他人用于违法犯罪活动。违法开办、出租、出借、贩卖银行卡，公安机关根据犯罪情节和情形，以诈骗罪、帮助信息网络犯罪活动罪、妨害信用卡管理罪等罪名依法打击处理。轻则拘役或管制，并处或单处罚金，重则判处3到10年有期徒刑。
+    </view>
+    <view style=" margin-top:5px;">
+      二、经告知，仍坚持违法开办、出租、出借、贩卖银行卡，虽无法确定他人利用所出租、出借、出售的银行卡实施何种具体行为，结果被用于电信网络诈骗或其他违法犯罪，公安机关将依照《中华人民共和国刑法》的有关规定，依法严厉打击
+    </view>
+    <view style="margin-top:5px;">
+      三、对设区的市级及以上公安机关认定的非法出租、出售、购买银行卡或者支付账户的单位、个人，在被追究刑事责任的同时还要纳入失信名单，实施五年内暂停其银行账户非柜面业务、支付账户所有业务，并不得为其新开立账户的惩戒措施。惩戒期满后申请开户的，银行和支付机构将加大审核力度。如若有违法犯罪行为发生，公安部门将依法调取该告知书作为案件证据使用。
+    </view>
+  </view>
+  <view wx:if="{{shifoudianhuaka}}" style="width: 80%;">
+    <view style="display:flex;flex-wrap: wrap;justify-content: center;width:100%;font-weight: bold;">
+      <view style="margin-top: 2px; display: flex;justify-content: center;align-items: center; width: 45%;background-color: #2188fe;height: 40px;font-size: 20px;color: #e6f3ff;transform: perspective(30px) rotateX(-10deg); border-bottom-right-radius:15px ;border-bottom-left-radius:15px; position: absolute; ">
+ <view style="position: absolute; margin-top: -5pt; transform: perspective(30px) rotateX(10deg);font-weight: bold;color: #fff;">
+  安全提示
+ </view> 
+  </view>
+  <view>
+    
+  </view>
+     <view style="display: flex;justify-content: center;margin-top: 40pt;">出租、出借、买卖电话卡</view>  
+    <view>
+      涉嫌违法犯罪告知书
+    </view>
+
+  </view>
+  <view style=" margin-top:15px;">
+    一、用户存在以下通信异常疑似诈骗的，暂停通信服务：
+    <view>
+      (1)开卡后漫游至电信网络诈编高危地且通信行为异常
+的；
+    </view>
+    <view>
+      (2)经他人投诉有诈编、强扰行为，一经核实的；
+    </view>
+<view>
+  (3)频繁换机插卡或频繁补换卡；
+</view>
+<view>
+  (4)公安机关提供的涉率或高风险人员开办的号卡。
+</view>
+    </view>
+    <view style=" margin-top:5px;">
+      二、对有如下行为的人员，纳入失信名单，限制新办业
+务：
+<view>
+  (1)将本人身份办理的号卡违规赠送、出借、售卖给他
+人的；
+</view>
+<view>
+  (2)受他人组织、教唆，无正当理由办卡；
+</view>
+<view>
+  (3)使用号卡用于各类强扰、虚假广告、诈骗的；
+</view>
+<view>
+  (4)公安机关提供的涉诈或高风险人员。
+</view>
+    </view>
+    <view style="margin-top:5px;">
+      三、对有如下行为的机构、组织或人员，一律移交公安机关
+警示训诚，一经发现有违法犯罪行为依法追究法律责任：
+<view>
+  (1)代理网点存在违规、批量开卡、违规屯卡的；
+</view>
+<view>
+  (2)组织、教唆、收受、贩卖他人开办新卡的；
+</view>
+<view>
+  (3)将本人身份办理的号卡违规赠予、出借、售卖给他
+人的；
+</view>
+<view>
+  (4)开办的号卡涉嫌电信网络诈骗等犯罪行为的。
+如若有违法犯罪行为发生，公安部门将依法调取该告知
+书作为案件证据使用。
+</view>
+    </view>
+  </view>
+<view style="font-size: 18px; width: 100%;display: flex;justify-content:space-around;align-items: center;">
+  <view style="width: 80%; margin-top: 25px;display: flex;align-items: center;border: 1px #ccc solid;height: 200px;">
+      <image style="width:100pt; height:40%;margin-left: 20%;position: absolute; transform: rotate(-90deg);" src="{{signature}}" mode=""/>
+    <!-- <checkbox-group bindchange="checkboxChange">
+      <checkbox  value="cb"  /> 
+    </checkbox-group>
+    <text style="font-size:18px;color: #2188fe;">我已知晓</text>  -->
+    </view>
+    <view bindtap="toSignature" style="margin-left: 65%;position: absolute;color: #2188fe;font-size: 1.3em;margin-top: 130pt;display: flex;align-items: center;">
+    <image src="../../img/screen.png" style="width: 20px;height: 20px;position: absolute;margin-left: -1.3em;" alt=""/>
+      <view>
+        签名
+      </view>
+    </view>
+</view>
+<view style="display: flex;justify-content: space-around; width: 86%;margin-top: 10pt;margin-bottom: 40pt;">
+  <button bindtap="gaozhicancel" style="width: 43%; color: #2188FE;background-color: #fff;border: 1px #2188FE solid;">取消</button>
+  <button class="background" disabled="{{gaozhiunConfirm}}" bindtap="gaozhiconfirm" style="width: 43%;">前往核验</button>
+</view>
+</view>
+
  <!--顶部导航栏-->
   
  <view class="swiper-tab">
@@ -10,7 +127,7 @@
   
  <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">办卡核验</view>
   
-  
+ <view wx:if="{{showSwichNav}}" class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">大额取现</view>
  </view>
   
   
@@ -19,23 +136,24 @@
  <swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChange">
 
   
- <swiper-item>
+ <swiper-item catchtouchmove="catchTouchMove">
   <view class="body">
   <view wx:if="{{typeShow}}" style="width: 100%;height: 120%;background-color:rgba(0,0,0,0.5);z-index: 55;position: fixed;"></view>
-  <view class="container">
+  <view class="container" >
+
+
 <view wx:if="{{typeShow}}" style="display: flex;flex-wrap: wrap;justify-content: center;align-items: center; position: fixed;z-index: 222;border-radius: 15px; width: 80%;height: 25%;background-color: #fff;margin: 60% 10% 50% 10%;">
 <view style="font-size: 1.3em;font-weight: 600;display: flex;justify-content: center;">核验类型</view>
 <view style="font-size: 18px; width: 100%;display: flex;justify-content:space-around;align-items: center;">
   <picker bindchange="bindPickerChange" value="{{index}}" range="{{mchList}}" range-key='name'>
-                <view style="display: flex;"> <view style="font-weight: 600;">请选择:</view>  {{mchList[index].name}}</view>
+                <view style="display: flex;"> <view style="font-weight: 600;margin-right: 8pt;">选择类型:</view> <view style="width: 80pt; border-bottom:1px #000 solid;display: flex;justify-content: center;">
+                  {{mchList[index].name}}
+                </view> </view>
               </picker>
-<!-- <ocr-navigator wx:if="{{saomiao}}" bind:onSuccess="blankSuccess"  certificateType="bankCard">
-  <button  type="primary" style="background-color: #fff;display: flex;justify-content: center;align-items: center;"><image src="../../img/saoyisao.png" style="width: 20px;height: 20px;" mode=""/></button>
-</ocr-navigator> -->
 </view>
 <view style="display: flex;justify-content: space-around; width: 100%;">
   <button bindtap="cancel" style="width: 40%; color: #2188FE;background-color: #fff;border: 1px #2188FE solid;">取消</button>
-  <button class="background" disabled="{{unConfirm}}" bindtap="confirm" style="width: 40%;">确认</button>
+  <button class="background"  bindtap="confirm" style="width: 40%;">确认</button>
 </view>
 </view>
     <icon type="search" bindtap="search" size="26"></icon>
@@ -48,7 +166,7 @@
                  <image style="width: 90px;height: 120px;border-radius: 8px;" src="{{item.photo}}" mode=""/>
                  <view class="listRight">
                  <view> <text style="font-weight: bold;font-size: 1.2em;">{{item.name}}</text><text style="font-size: 0.8em;color: #4199fe;margin-left: 5px;">{{item.sex}}</text><view id="{{item.detail_id}}" bindtap="toDetail" style="position: absolute;margin-left: 43%; color: #4199fe;display: flex;align-items: center;">查看<image src="../../img/ebc285b2ec8f6d026303e5c4a8c956a.png" style="margin-left: 2px; width: 7.14pt;height: 9.55pt;" mode=""/></view></view>
-                  <view>{{item.nation}}</view>
+                  <!-- <view>{{item.nation}}</view> -->
                   <view>{{item.birthday}}</view>
                   <text style="word-wrap: break-word;margin: 10px 0 10px 0;">{{item.address}}</text>
                  </view>
@@ -65,7 +183,7 @@
   </view>
 </view>
  </swiper-item>
-<swiper-item>
+<swiper-item catchtouchmove="catchTouchMove">
   <view class="body">
   <view wx:if="{{typeShow}}" style="width: 100%;height: 120%;background-color:rgba(0,0,0,0.5);z-index: 55;position: fixed;"></view>
   <view class="container">
@@ -73,7 +191,7 @@
 <view style="font-size: 1.3em;font-weight: 600;display: flex;justify-content: center;">核验类型</view>
 <view style="font-size: 18px; width: 100%;display: flex;justify-content:space-around;align-items: center;">
   <picker bindchange="bindPickerChange" value="{{index}}" range="{{mchList}}" range-key='name'>
-                <view style="display: flex;"> <view style="font-weight: 600;">请选择:</view>  {{mchList[index].name}}</view>
+                <view style="display: flex;"> <view style="font-weight: 600;">请选择:</view> <view>{{mchList[index].name}}</view></view>
               </picker>
 <!-- <ocr-navigator wx:if="{{saomiao}}" bind:onSuccess="blankSuccess"  certificateType="bankCard">
   <button  type="primary" style="background-color: #fff;display: flex;justify-content: center;align-items: center;"><image src="../../img/saoyisao.png" style="width: 20px;height: 20px;" mode=""/></button>
@@ -94,7 +212,53 @@
                  <image style="width: 90px;height: 120px;border-radius: 8px;" src="{{item.photo}}" mode=""/>
                  <view class="listRight">
                  <view> <text style="font-weight: bold;font-size: 1.2em;">{{item.name}}</text><text style="font-size: 0.8em;color: #4199fe;margin-left: 5px;">{{item.sex}}</text><view id="{{item.detail_id}}" bindtap="toDetail" style="position: absolute;margin-left: 43%; color: #4199fe;display: flex;align-items: center;">查看<image src="../../img/ebc285b2ec8f6d026303e5c4a8c956a.png" style="margin-left: 2px; width: 7.14pt;height: 9.55pt;" mode=""/></view></view>
-                  <view>{{item.nation}}</view>
+                  <!-- <view>{{item.nation}}</view> -->
+                  <view>{{item.birthday}}</view>
+                  <text style="word-wrap: break-word;margin: 10px 0 10px 0;">{{item.address}}</text>
+                 </view>
+                 <view>
+                 </view>
+                </view>
+             </view> 
+        </block>
+      </view>
+    </scroll-view>
+    <view style="position: fixed;z-index: 22;margin-top: 130%;justify-content: center;display: flex;width: 100%;">
+    <button bindtap="opeanCard" style="display: flex;align-items: center;justify-content: center; color: #fff;background-color: #4199fe;width: 70%;border-radius: 8px;height: 40px;">协助开卡</button>
+  </view>
+  </view>
+</view>
+</swiper-item>
+<swiper-item catchtouchmove="catchTouchMove">
+  <view class="body">
+  <view wx:if="{{typeShow}}" style="width: 100%;height: 120%;background-color:rgba(0,0,0,0.5);z-index: 55;position: fixed;"></view>
+  <view class="container">
+<view wx:if="{{typeShow}}" style="display: flex;flex-wrap: wrap;justify-content: center;align-items: center; position: fixed;z-index: 222;border-radius: 15px; width: 80%;height: 25%;background-color: #fff;margin: 60% 10% 50% 10%;">
+<view style="font-size: 1.3em;font-weight: 600;display: flex;justify-content: center;">核验类型</view>
+<view style="font-size: 18px; width: 100%;display: flex;justify-content:space-around;align-items: center;">
+  <picker bindchange="bindPickerChange" value="{{index}}" range="{{mchList}}" range-key='name'>
+                <view style="display: flex;"> <view style="font-weight: 600;">请选择:</view> <view>{{mchList[index].name}}</view></view>
+              </picker>
+<!-- <ocr-navigator wx:if="{{saomiao}}" bind:onSuccess="blankSuccess"  certificateType="bankCard">
+  <button  type="primary" style="background-color: #fff;display: flex;justify-content: center;align-items: center;"><image src="../../img/saoyisao.png" style="width: 20px;height: 20px;" mode=""/></button>
+</ocr-navigator> -->
+</view>
+<view style="display: flex;justify-content: space-around; width: 100%;">
+  <button bindtap="cancel" style="width: 40%; color: #2188FE;background-color: #fff;border: 1px #2188FE solid;">取消</button>
+  <button class="background" disabled="{{unConfirm}}" bindtap="confirm" style="width: 40%;">确认</button>
+</view>
+</view>
+    <icon type="search" bindtap="search" size="26"></icon>
+      <input value="{{search}}" bindconfirm="search"  placeholder-style="color:#d3d3d3;" bindinput="searchData" placeholder="请输入姓名查询" type="index"/>
+      <scroll-view 	scroll-y style="height:100%;  margin-top: 5%;">
+      <view class="list">
+        <block wx:for="{{list}}" wx:key="id">
+             <view class="listC">
+              <view class="listContent">
+                 <image style="width: 90px;height: 120px;border-radius: 8px;" src="{{item.photo}}" mode=""/>
+                 <view class="listRight">
+                 <view> <text style="font-weight: bold;font-size: 1.2em;">{{item.name}}</text><text style="font-size: 0.8em;color: #4199fe;margin-left: 5px;">{{item.sex}}</text><view id="{{item.detail_id}}" bindtap="toDetail" style="position: absolute;margin-left: 43%; color: #4199fe;display: flex;align-items: center;">查看<image src="../../img/ebc285b2ec8f6d026303e5c4a8c956a.png" style="margin-left: 2px; width: 7.14pt;height: 9.55pt;" mode=""/></view></view>
+                  <!-- <view>{{item.nation}}</view> -->
                   <view>{{item.birthday}}</view>
                   <text style="word-wrap: break-word;margin: 10px 0 10px 0;">{{item.address}}</text>
                  </view>
